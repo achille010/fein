@@ -76,6 +76,9 @@
                     <div class="logoPic">
                         <a href="home.html">Fein</a>
                     </div>
+                    <div class="menu-toggle" id="mobile-menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
                     <nav class="navbar">
                         <a href="home.html">HOME</a>
                         <a href="about.html">ABOUT</a>
@@ -209,16 +212,22 @@
                 fryer, so you always get food that’s tasty and fast.</p>
             <h2>Our chefs</h2>
             <div class="chefs">
-                <div class="chef">
-                    <img src="chef1.jpg" alt="Gordon" class="gordon">
+                <div class="chef-card">
+                    <div class="chef">
+                        <img src="chef1.jpg" alt="Gordon" class="gordon">
+                    </div>
                     <h3>Gordon Ramsay</h3>
                 </div>
-                <div class="chef">
-                    <img src="chef2.jpg" alt="Bayashi" class="hiroaki">
+                <div class="chef-card">
+                    <div class="chef">
+                        <img src="chef2.jpg" alt="Bayashi" class="hiroaki">
+                    </div>
                     <h3>Hiroaki Bayashi</h3>
                 </div>
-                <div class="chef">
-                    <img src="chef3.jpg" alt="Chef rush" class="rush">
+                <div class="chef-card">
+                    <div class="chef">
+                        <img src="chef3.jpg" alt="Chef rush" class="rush">
+                    </div>
                     <h3>Chef Rush</h3>
                 </div>
             </div>
@@ -281,6 +290,15 @@
             <p>&copy; Developed with <i class="fa-solid fa-code"></i> By ISHYA RUGEMA Achille</p>
         </div>
     </footer>
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navbar = document.querySelector('.navbar');
+
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>

@@ -12,6 +12,7 @@ body {
   color: #222831;
   background-color: #ffffff;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 :root {
@@ -74,6 +75,10 @@ body {
   height: 22px;
   margin-right: 15px;
   cursor: pointer;
+}
+
+.menu-toggle {
+  display: none;
 }
 
 .orderOnline {
@@ -319,7 +324,9 @@ footer {
 }
 
 main {
-  padding: 40px 120px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .expImg {
@@ -332,10 +339,11 @@ main {
 }
 
 .selfExp-text {
-  height: 100px;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  margin-top: 350px;
+  justify-content: center;
+  padding: 20px;
 }
 
 .selfExp-text h2 {
@@ -363,11 +371,12 @@ p {
 }
 
 .values ul li ul li {
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 .values {
-  margin-left: 30px;
+  margin-left: 0;
+  padding: 0 20px;
 }
 
 .values {
@@ -383,13 +392,11 @@ h2 {
   margin-bottom: 30px;
 }
 
-.chefs {
+.chef-card {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
 .chef {
@@ -464,12 +471,13 @@ th {
   font-family: 'Quicksand';
   display: flex;
   flex-direction: row;
-  width: fit-content;
-  padding: 40px 40px 20px 20px;
-  margin-left: auto;
-  margin-right: auto;
-  gap: 100px;
-  margin-top: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+  padding: 40px 20px;
+  margin: 40px auto 0 auto;
+  gap: 40px;
 }
 
 .combo {
@@ -495,15 +503,20 @@ th {
 }
 
 .foodsAv ul {
-  padding-left: 600px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  gap: 20px;
 }
 
 form {
   font-family: 'Quicksand';
-  width: 500px;
-  margin: 0 auto 0 auto;
-  padding: 40px;
-  padding-left: 40px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 input,
@@ -534,11 +547,13 @@ select {
 .contForm {
   justify-content: center;
   border: .01px solid var(--yellow);
-  width: 500px;
-  margin: 0 auto 0 auto;
-  padding-left: 30px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
   border-radius: 7px;
   background-color: var(--warm-color);
+  box-sizing: border-box;
 }
 
 textarea {
@@ -565,7 +580,12 @@ select,
 
 .guide ul {
   font-family: 'Quicksand';
-  margin-left: 600px;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
 }
 
 .cont {
@@ -582,13 +602,15 @@ figure {
 
 .visuals {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
+  padding: 20px 0;
 }
 
 .visuals>* {
-  width: 500px;
-  height: 280px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
   border-radius: 7px;
 }
 
@@ -977,4 +999,135 @@ main {
   left: 98%;
   animation-delay: 3s;
   animation-duration: 9s;
+}
+
+/* Responsive Media Queries */
+
+@media (max-width: 1200px) {
+  main {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .containsFooter {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .contact p {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .self-exp-oth {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .expImg {
+    transform: none;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .chefs {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .visuals {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome {
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .navi {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 10px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: var(--white);
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(34, 40, 49, 0.98);
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .navbar a {
+    margin: 10px 0;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+  }
+
+  .leftPanel,
+  .button {
+    display: none;
+  }
+
+  main {
+    padding: 40px 15px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  .menuTable table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .menuTable th,
+  .menuTable td {
+    padding: 10px 15px;
+  }
+
+  .righter {
+    padding-left: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  h2 {
+    font-size: 26px;
+  }
+
+  .starter h1 {
+    font-size: 36px;
+  }
+
+  .comboCont {
+    padding: 0 10px;
+  }
 }

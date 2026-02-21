@@ -14,6 +14,7 @@ body {
   color: #222831;
   background-color: #ffffff;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 :root {
@@ -79,6 +80,10 @@ body {
   height: 22px;
   margin-right: 15px;
   cursor: pointer;
+}
+
+.menu-toggle {
+  display: none;
 }
 
 .orderOnline {
@@ -702,4 +707,156 @@ main {
   left: 98%;
   animation-delay: 3s;
   animation-duration: 9s;
+}
+
+/* Responsive Media Queries */
+
+@media (max-width: 992px) {
+  .under {
+    flex-direction: column;
+    margin: 40px 20px;
+    padding: 0;
+  }
+
+  .itemsMenu {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .toBook {
+    flex-direction: column;
+    gap: 50px;
+    text-align: center;
+  }
+
+  .toBook .hungSvg {
+    border-right: none !important;
+    border-bottom: 2px dotted white;
+    padding-right: 0 !important;
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-content {
+    padding: 20px 15px;
+  }
+
+  .navi {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 10px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: var(--white);
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(34, 40, 49, 0.95);
+    padding: 20px;
+    z-index: 1000;
+    text-align: center;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .navbar a {
+    margin: 10px 0;
+    font-size: 18px;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+  }
+
+  .navbar a:last-child {
+    border-bottom: none;
+  }
+
+  .leftPanel,
+  .button {
+    display: none;
+    /* Hide svg and order button on mobile nav for clean look */
+  }
+
+  .starter {
+    margin-top: 50px;
+    text-align: center;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .starter h1 {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+
+  .starter p {
+    font-size: 16px;
+    margin: 0 auto;
+    max-width: 400px;
+  }
+
+  .starter p br {
+    display: none;
+  }
+
+  .testimonials {
+    flex-direction: column;
+    padding: 40px 15px;
+    gap: 30px;
+  }
+
+  .testimony {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .containsFooter {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .contact p {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .itemsMenu {
+    grid-template-columns: 1fr;
+  }
+
+  .starter h1 {
+    font-size: 36px;
+  }
+
+  .underStarter,
+  .underStarter2 {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .imgCont {
+    margin: 0 auto;
+  }
 }

@@ -76,6 +76,9 @@
                     <div class="logoPic">
                         <a href="home.html">Fein</a>
                     </div>
+                    <div class="menu-toggle" id="mobile-menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
                     <nav class="navbar">
                         <a href="home.html">HOME</a>
                         <a href="about.html">ABOUT</a>
@@ -254,6 +257,15 @@
             <p>&copy; Developed with <i class="fa-solid fa-code"></i> By ISHYA RUGEMA Achille</p>
         </div>
     </footer>
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navbar = document.querySelector('.navbar');
+
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>
