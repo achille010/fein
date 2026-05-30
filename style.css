@@ -791,7 +791,6 @@ main {
   .leftPanel,
   .button {
     display: none;
-    /* Hide svg and order button on mobile nav for clean look */
   }
 
   .starter {
